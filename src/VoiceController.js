@@ -93,7 +93,6 @@ export const automateClockIn = async () =>{
     let data = JSON.parse(read);
     let command = "clock in";
     let msg="";
-    (async()=>{
        const browser = await puppeteer.launch({
          headless:false,
          args:[
@@ -140,7 +139,4 @@ export const automateClockIn = async () =>{
         }  
        }
        
-
-       
-    })()
 }
