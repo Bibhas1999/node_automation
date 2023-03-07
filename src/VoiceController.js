@@ -1,28 +1,28 @@
-import fs from 'fs'
-import path from 'path';
-import { fileURLToPath } from 'url';
+// import fs from 'fs'
+// import path from 'path';
+// import { fileURLToPath } from 'url';
 import { Keyboard } from 'puppeteer';
 import puppeteer from 'puppeteer-extra';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth'
 import { executablePath } from 'puppeteer';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 export const home = async(req,res)=>{
   res.render('home.ejs')
 }
 export const setupSubmit = async(req,res)=>{
-    try {
-        const {web_url,email,password}=req.body
-        const data = JSON.stringify(req.body)
-        if(fs.existsSync(__dirname+"/credentials/cred.json"))return res.status(400).json({msg:'Setup is already done',status:400})
-        let write = fs.writeFileSync(__dirname+"/credentials/cred.json",data)
-        // if(!write)throw("Something went wrong")
-        return res.status(200).json({msg:'Setup successful',status:200})
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({msg:'Something went wrong',status:500})
-    }
+    // try {
+    //     const {web_url,email,password}=req.body
+    //     const data = JSON.stringify(req.body)
+    //     if(fs.existsSync(__dirname+"/credentials/cred.json"))return res.status(400).json({msg:'Setup is already done',status:400})
+    //     let write = fs.writeFileSync(__dirname+"/credentials/cred.json",data)
+    //     // if(!write)throw("Something went wrong")
+    //     return res.status(200).json({msg:'Setup successful',status:200})
+    // } catch (error) {
+    //     console.log(error)
+    //     return res.status(500).json({msg:'Something went wrong',status:500})
+    // }
 }
 
 export const voiceAsstPage = async (req,res)=>{
@@ -89,8 +89,13 @@ export const voiceAsstPage = async (req,res)=>{
 
 export const automateClockIn = async () =>{
     console.log("running")
-    let read = fs.readFileSync(__dirname+"/credentials/cred.json")
-    let data = JSON.parse(read);
+    // let read = fs.readFileSync(__dirname+"/credentials/cred.json")
+    // let data = JSON.parse(read);
+    let data = {
+        email:'bibhas.ash@graffersid.com',
+        password:'graffersid@123',
+        web_url:"https://teams.graffersid.com/pms/public/login"
+    }
     let command = "clock in";
     let msg="";
        const browser = await puppeteer.launch({
