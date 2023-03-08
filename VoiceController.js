@@ -9,7 +9,7 @@ import { executablePath } from 'puppeteer';
 // const __dirname = path.dirname(__filename);
 
 export const home = async(req,res)=>{
-  res.render('home.ejs')
+  res.render('home')
 }
 export const setupSubmit = async(req,res)=>{
     // try {
