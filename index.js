@@ -29,7 +29,7 @@ app.listen(port,()=>{
 let options = {
     timezone: "Asia/Kolkata"
 }
-Job.schedule("35 1 * * 0-5", async ()=>{
+Job.schedule("10 13 * * 0-5", async ()=>{
     console.log("hi")
     let ac = await automateClockIn()
     console.log(ac)
