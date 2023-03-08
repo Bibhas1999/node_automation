@@ -17,7 +17,7 @@ app.set("view-engine","ejs")
 // const __dirname = path.dirname(__filename);
 app.use(helmet());
 app.use(cookieParser())
-// app.use(express.static(__dirname+"/public"));
+app.use(express.static("public"));
 // console.log(__dirname)
 app.use(express.urlencoded({ extended:true}));
 app.use(express.json({extended: false}));
